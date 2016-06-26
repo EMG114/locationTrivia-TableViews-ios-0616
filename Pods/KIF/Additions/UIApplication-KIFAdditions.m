@@ -36,19 +36,19 @@ static const void *KIFRunLoopModesKey = &KIFRunLoopModesKey;
 
 #pragma mark - Finding elements
 
-- (UIAccessibilityElement *)accessibilityElementWithLabel:(NSString *)label accessibilityValue:(NSString *)value traits:(UIAccessibilityTraits)traits;
-{
-    // Go through the array of windows in reverse order to process the frontmost window first.
-    // When several elements with the same accessibilitylabel are present the one in front will be picked.
-    for (UIWindow *window in [self.windowsWithKeyWindow reverseObjectEnumerator]) {
-        UIAccessibilityElement *element = [window accessibilityElementWithLabel:label accessibilityValue:value traits:traits];
-        if (element) {
-            return element;
-        }
-    }
-    
-    return nil;
-}
+//- (UIAccessibilityElement *)accessibilityElementWithLabel:(NSString *)label accessibilityValue:(NSString *)value traits:(UIAccessibilityTraits)traits;
+//{
+//    // Go through the array of windows in reverse order to process the frontmost window first.
+//    // When several elements with the same accessibilitylabel are present the one in front will be picked.
+//    for (UIWindow *window in [self.windowsWithKeyWindow reverseObjectEnumerator]) {
+//        UIAccessibilityElement *element = [window accessibilityElementWithLabel:label accessibilityValue:value traits:traits];
+//        if (element) {
+//            return element;
+//        }
+//    }
+//    
+//    return nil;
+//}
 
 - (UIAccessibilityElement *)accessibilityElementMatchingBlock:(BOOL(^)(UIAccessibilityElement *))matchBlock;
 {
@@ -75,42 +75,42 @@ static const void *KIFRunLoopModesKey = &KIFRunLoopModesKey;
     return nil;
 }
 
-- (UIWindow *)datePickerWindow;
-{
-    return [self getWindowForSubviewClass:@"UIDatePicker"];
-}
+//- (UIWindow *)datePickerWindow;
+//{
+//    return [self getWindowForSubviewClass:@"UIDatePicker"];
+//}
+//
+//- (UIWindow *)pickerViewWindow;
+//{
+//    return [self getWindowForSubviewClass:@"UIPickerView"];
+//}
+//
+//- (UIWindow *)dimmingViewWindow;
+//{
+//    return [self getWindowForSubviewClass:@"UIDimmingView"];
+//}
+//
+//- (UIWindow *)getWindowForSubviewClass:(NSString*)className;
+//{
+//    for (UIWindow *window in self.windowsWithKeyWindow) {
+//        NSArray *subViews = [window subviewsWithClassNameOrSuperClassNamePrefix:className];
+//        if (subViews.count > 0) {
+//            return window;
+//        }
+//    }
+//
+//    return nil;
+//}
 
-- (UIWindow *)pickerViewWindow;
-{
-    return [self getWindowForSubviewClass:@"UIPickerView"];
-}
-
-- (UIWindow *)dimmingViewWindow;
-{
-    return [self getWindowForSubviewClass:@"UIDimmingView"];
-}
-
-- (UIWindow *)getWindowForSubviewClass:(NSString*)className;
-{
-    for (UIWindow *window in self.windowsWithKeyWindow) {
-        NSArray *subViews = [window subviewsWithClassNameOrSuperClassNamePrefix:className];
-        if (subViews.count > 0) {
-            return window;
-        }
-    }
-
-    return nil;
-}
-
-- (NSArray *)windowsWithKeyWindow
-{
-    NSMutableArray *windows = self.windows.mutableCopy;
-    UIWindow *keyWindow = self.keyWindow;
-    if (![windows containsObject:keyWindow]) {
-        [windows addObject:keyWindow];
-    }
-    return windows;
-}
+//- (NSArray *)windowsWithKeyWindow
+//{
+//    NSMutableArray *windows = self.windows.mutableCopy;
+//    UIWindow *keyWindow = self.keyWindow;
+//    if (![windows containsObject:keyWindow]) {
+//        [windows addObject:keyWindow];
+//    }
+//    return windows;
+//}
 
 #pragma mark - Screenshotting
 
